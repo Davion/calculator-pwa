@@ -142,15 +142,21 @@ body{
   background-color: var(--orange-500);
 }
 
-.operator{
+[data-type="operator"]{
   background-color: var(--grey-100);
 }
 
-.number{
+[data-type="number"],
+[data-type="clear"]{
   background-color: var(--grey-050);
 }
 
-.operator:active,
-.number:active{
+[data-type="operator"]:active,
+[data-type="number"]:active,
+[data-type="clear"]:active{
+  background-color: var(--grey-200);
+}
+
+[data-state="selected"]{
   background-color: var(--grey-200);
 }
