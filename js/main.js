@@ -11,11 +11,13 @@ keys.addEventListener("click", event => {
     const displayValue = display.textContent;
     const { type } = key.dataset;
     const { previousKeyType } = calculator.dataset;
+    const { isEqual } = calculator.dataset;
     
     // is this a number key
     if(type === "number"){
-        if(displayValue === "0" || previousKeyType === "operator"){
+        if(displayValue === "0" || previousKeyType === "operator" || isEqual === "true"){
             display.textContent = keyValue;
+            calculator.dataset.isEqual = false;
         }else{
             display.textContent = displayValue + keyValue;
         }
@@ -28,22 +30,37 @@ keys.addEventListener("click", event => {
         operatorKeys.forEach(el => { el.dataset.state = "" });
         key.dataset.state = "selected";
 
-        calculator.dataset.firstNumber = displayValue;
+        if(calculator.dataset.firstNumber){
+            if(previousKeyType !== "operator"){
+                const firstNumber = calculator.dataset.firstNumber;
+                const operator  = calculator.dataset.operator;
+                const secondNumber = displayValue;
+                display.textContent = calculate(firstNumber, operator, secondNumber);
+            }
+        }
+        
+        calculator.dataset.firstNumber = display.textContent;
         calculator.dataset.operator = key.dataset.key;
+        
     }
 
     if(type === "equal"){
-        const firstNumber = calculator.dataset.firstNumber;
-        const operator  = calculator.dataset.operator;
-        const secondNumber = displayValue;
-        display.textContent = calculate(firstNumber, operator, secondNumber);
-        clearSelectedOperator();
+        if(calculator.dataset.firstNumber && previousKeyType === "number"){
+            const firstNumber = calculator.dataset.firstNumber;
+            const operator  = calculator.dataset.operator;
+            const secondNumber = displayValue;
+            display.textContent = calculate(firstNumber, operator, secondNumber);
+            calculator.dataset.isEqual = true;
+            delete calculator.dataset.firstNumber;
+            clearSelectedOperator();
+        }
     }
 
     if(type === "clear"){
         display.textContent = "0";
         delete calculator.dataset.firstNumber;
         delete calculator.dataset.operator;
+        calculator.dataset.isEqual = false;
         clearSelectedOperator();
     }
 
