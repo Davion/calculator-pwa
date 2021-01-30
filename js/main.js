@@ -37,12 +37,14 @@ keys.addEventListener("click", event => {
         const operator  = calculator.dataset.operator;
         const secondNumber = displayValue;
         display.textContent = calculate(firstNumber, operator, secondNumber);
+        clearSelectedOperator();
     }
 
     if(type === "clear"){
         display.textContent = "0";
         delete calculator.dataset.firstNumber;
         delete calculator.dataset.operator;
+        clearSelectedOperator();
     }
 
     calculator.dataset.previousKeyType = type;
@@ -57,4 +59,8 @@ function calculate(firstNumber, operator, secondNumber){
     if(operator === "minus") return firstNumber - secondNumber;
     if(operator === "times") return firstNumber * secondNumber;
     if(operator === "divide") return firstNumber / secondNumber;
+}
+
+function clearSelectedOperator(){
+    keys.querySelector("[data-state='selected']").dataset.state = "";
 }
