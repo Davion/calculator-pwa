@@ -23,7 +23,6 @@ keys.addEventListener("click", event => {
         }
     }
 
-
     //is this an operator key
     if(type === "operator"){
         const operatorKeys = keys.querySelectorAll("[data-type='operator']");
@@ -41,9 +40,9 @@ keys.addEventListener("click", event => {
         
         calculator.dataset.firstNumber = display.textContent;
         calculator.dataset.operator = key.dataset.key;
-        
     }
 
+    //is this an equal key
     if(type === "equal"){
         if(calculator.dataset.firstNumber && previousKeyType === "number"){
             const firstNumber = calculator.dataset.firstNumber;
@@ -56,12 +55,20 @@ keys.addEventListener("click", event => {
         }
     }
 
+    //is this a clear key
     if(type === "clear"){
         display.textContent = "0";
         delete calculator.dataset.firstNumber;
         delete calculator.dataset.operator;
+        delete calculator.dataset.decimal;
         calculator.dataset.isEqual = false;
         clearSelectedOperator();
+    }
+
+    //is this a decimal key
+    if(type === "decimal" && display.textContent.indexOf(".") === -1){
+        display.textContent = displayValue + keyValue;
+        calculator.dataset.decimal = true
     }
 
     calculator.dataset.previousKeyType = type;
@@ -69,9 +76,14 @@ keys.addEventListener("click", event => {
 
 
 function calculate(firstNumber, operator, secondNumber){
-    firstNumber = parseInt(firstNumber);
-    secondNumber = parseInt(secondNumber);
-    
+    if(calculator.dataset.decimal === "true"){
+        firstNumber = parseFloat(firstNumber);
+        secondNumber = parseFloat(secondNumber);
+    }else{
+        firstNumber = parseInt(firstNumber);
+        secondNumber = parseInt(secondNumber);
+    }
+
     if(operator === "plus") return firstNumber + secondNumber;
     if(operator === "minus") return firstNumber - secondNumber;
     if(operator === "times") return firstNumber * secondNumber;

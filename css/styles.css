@@ -147,13 +147,15 @@ body{
 }
 
 [data-type="number"],
-[data-type="clear"]{
+[data-type="clear"],
+[data-type="decimal"]{
   background-color: var(--grey-050);
 }
 
 [data-type="operator"]:active,
 [data-type="number"]:active,
-[data-type="clear"]:active{
+[data-type="clear"]:active,
+[data-type="decimal"]:active{
   background-color: var(--grey-200);
 }
 
