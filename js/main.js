@@ -62,5 +62,6 @@ function calculate(firstNumber, operator, secondNumber){
 }
 
 function clearSelectedOperator(){
-    keys.querySelector("[data-state='selected']").dataset.state = "";
+    const selectedOperator = keys.querySelector("[data-state='selected']");
+    if(selectedOperator) selectedOperator.dataset.state = "";
 }
