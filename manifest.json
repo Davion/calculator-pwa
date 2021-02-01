@@ -1,15 +1,20 @@
 {
     "name": "C41cu1470r",
-    "short_name": "C41cu1470r",
+    "short_name": "C 4 1 c",
     "start_url": "/calculator-pwa/index.html",
     "display": "standalone",
-    "background_color": "#87d9db",
-    "theme_color": "#87d9db",
+    "background_color": "#87D9DB",
+    "theme_color": "#87D9DB",
     "orientation": "portrait-primary",
     "icons": [
         {
-        "src": "icons/icon-48.png",
+        "src": "icons/android-launchericon-48-48.png",
         "type": "image/png", "sizes": "48x48"
+        },
+        {
+        "src": "icons/maskable_icon_x72.png",
+        "type": "image/png", "sizes": "72x72",
+        "purpose": "any maskable"
         },
         {
         "src": "icons/android-launchericon-72-72.png",

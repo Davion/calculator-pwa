@@ -1,4 +1,4 @@
-const staticCascheName = "calculator-app-static-v4";
+const staticCascheName = "calculator-app-static-v1";
 const assets = [
     "/calculator-pwa/",
     "/calculator-pwa/index.html",
