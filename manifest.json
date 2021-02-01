@@ -1,0 +1,35 @@
+{
+    "name": "C41cu1470r",
+    "short_name": "C41cu1470r",
+    "start_url": "/calculator-pwa/index.html",
+    "display": "standalone",
+    "background_color": "#87d9db",
+    "theme_color": "#87d9db",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+        "src": "icons/icon-48.png",
+        "type": "image/png", "sizes": "48x48"
+        },
+        {
+        "src": "icons/android-launchericon-72-72.png",
+        "type": "image/png", "sizes": "72x72"
+        },
+        {
+        "src": "icons/android-launchericon-96-96.png",
+        "type": "image/png", "sizes": "96x96"
+        },
+        {
+        "src": "icons/android-launchericon-144-144.png",
+        "type": "image/png","sizes": "144x144"
+        },
+        {
+        "src": "icons/android-launchericon-192-192.png",
+        "type": "image/png", "sizes": "192x192"
+        },
+        {
+        "src": "icons/android-launchericon-512-512.png",
+        "type": "image/png", "sizes": "512x512"
+        }
+    ]
+}
