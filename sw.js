@@ -44,7 +44,7 @@ self.addEventListener("install", installEvent => {
           })
         ).catch(() => {
           if(fetchEvent.request.url.indexOf(".html") > -1 || fetchEvent.request.url === "https://github.com/Davion"){
-            return caches.match("/todo-app-js-pwa/fallback.html");
+            return caches.match("/calculator-pwa/fallback.html");
           }
         })
       }).catch(err => console.log("issue opening cache on fetch", err))
